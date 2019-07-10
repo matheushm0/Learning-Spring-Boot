@@ -1,5 +1,6 @@
 package com.eventosapp;
 
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -9,17 +10,16 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
-
 @Configuration
 public class DataConfiguration {
-	
+
 	@Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/eventosapp?useSSL=false");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/eventosapp");
         dataSource.setUsername("root");
-        dataSource.setPassword("admin");
+        dataSource.setPassword("michelli14");
         return dataSource;
     }
 	
@@ -33,5 +33,4 @@ public class DataConfiguration {
 		adapter.setPrepareConnection(true);
 		return adapter;
 	}
-	
 }

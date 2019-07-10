@@ -5,8 +5,10 @@ import java.net.URISyntaxException;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-public class DataConfigurationPostgresSQL {
+@Configuration
+public class DataConfigurationPostgreSQL{
 
 	@Bean
     public BasicDataSource dataSource() throws URISyntaxException {
@@ -14,7 +16,7 @@ public class DataConfigurationPostgresSQL {
 
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(dbUrl);
@@ -22,6 +24,5 @@ public class DataConfigurationPostgresSQL {
         basicDataSource.setPassword(password);
 
         return basicDataSource;
- 	}
-	
+    }
 }
