@@ -20,10 +20,10 @@
 	
 	<header>
 		<nav>
-		  <div class="nav-wrapper">
+		  <div class="nav-wrapper black">
 		    <a href="#" class="brand-logo">Evento</a>
 		    <ul id="nav-mobile" class="right hide-on-med-and-down">
-		      <li><a href= "/eventos" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Evento</a></li>
+		      <li><a href= "/eventos" class="waves-effect waves-light btn black"><i class="material-icons left">format_list_bulleted</i>Lista de Evento</a></li>
 		    </ul>
 		  </div>
 		</nav>
@@ -43,7 +43,7 @@
 			<form method= "post">
 				Nome: <input type ="text" value= "" name= "nomeConvidado" placeholder ="Nome Completo"/>
 				RG: <input type ="text" value= "" name= "rg" placeholder = "AA-00.000.000" class = "validate"/>
-				<button type= "submit" class="waves-effect waves-light btn">Adicionar</button>			
+				<button type= "submit" class="waves-effect waves-light btn black">Adicionar</button>			
 			</form>
 		</div>
 	<table class ="container tabelaConvidado">
@@ -58,7 +58,7 @@
 			<tr th:each="convidado : ${convidados}">
 			<td><span th:text="${convidado.nomeConvidado}"></span> </td>
 			<td><span th:text="${convidado.rg}"></span> </td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}"><i class="material-icons left">delete</i></a></td>
+				<td><a class="waves-effect waves-light btn-flat" th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}"><i class="material-icons left">delete</i></a></td>
 			</tr>
 		</tbody>	
 	</table>
